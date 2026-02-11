@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Answers - Examination System</title>
+    <link rel="stylesheet" href="reviewAnswers.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Examination System</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <button id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#" id="logout">Logout</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="review-header">
+        <h1><i class="fa-solid fa-clipboard-check"></i> Review Your Answers</h1>
+        <p>Here's a detailed breakdown of your exam performance</p>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="summary-stats">
+        <div class="stat-card correct">
+          <div class="stat-icon">✓</div>
+          <div class="stat-value" id="correctCount">0</div>
+          <div class="stat-label">Correct</div>
+        </div>
+        <div class="stat-card incorrect">
+          <div class="stat-icon">✗</div>
+          <div class="stat-value" id="incorrectCount">0</div>
+          <div class="stat-label">Incorrect</div>
+        </div>
+        <div class="stat-card total">
+          <div class="stat-icon">📝</div>
+          <div class="stat-value" id="totalQuestions">0</div>
+          <div class="stat-label">Total Questions</div>
+        </div>
+      </div>
+
+      <!-- Questions Review -->
+      <div class="questions-review" id="questionsReview"></div>
+
+      <!-- Action Buttons -->
+      <div class="review-actions">
+        <a href="finishExam.html" class="btn primary">
+          <i class="fa-solid fa-chart-bar"></i> View Summary
+        </a>
+        <a href="index.html" class="btn">
+          <i class="fa-solid fa-home"></i> Go Home
+        </a>
+      </div>
+    </main>
+
+    <footer>© 2025 Examination System. All rights reserved.</footer>
+
+    <script src="reviewAnswers.js"></script>
+    <script>
+      // Dark Mode Toggle
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const body = document.body;
+      
+      if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+      
+      darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        
+        if (body.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+          darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+          localStorage.setItem("darkMode", "disabled");
+          darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+      });
+
+      // Logout
+      document.getElementById("logout").addEventListener("click", () => {
+        localStorage.removeItem("currentUserEmail");
+        sessionStorage.removeItem("examStarted");
+        location.replace("index.html");
+      });
+    </script>
+  </body>
+</html>
