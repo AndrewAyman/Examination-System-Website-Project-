@@ -68,6 +68,7 @@ main.hero {
   color: #fff;
   padding: 40px 20px;
   animation: fadeIn 0.8s ease;
+  
   background-image: url('/images/output-onlinepngtools.png');
   background-size: cover;
   padding-bottom: 80px;
