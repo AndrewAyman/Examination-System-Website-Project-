@@ -86,10 +86,6 @@
     <footer>© 2025 Examination System. All rights reserved.</footer>
 
     <script>
-      if (localStorage.getItem("userState") === "testStart") {
-        console.log("hello");
-        window.location.replace("./finishExam.html");
-      }
       var startExamBtn = document.getElementById("startExamBtn");
       startExamBtn.addEventListener("click", function () {
         localStorage.setItem("userState", "testStart");

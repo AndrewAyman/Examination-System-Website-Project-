@@ -174,26 +174,7 @@
         resultEl.textContent = "No result found.";
         hit.textContent = "Please take the exam first.";
       }
-
-      function resultGaurd(){
-        var testState = JSON.parse(localStorage.getItem("userState"));
-        if(testState === "testStart"){
-          window.location.replace("./finishExam.html");
-      }
-}
-  window.addEventListener("beforeunload", function (e) {
-      resultGaurd();
-      e.preventDefault();
-      e.returnValue = '';
-  });
-
-
-
-  console.log('hi')
-
-      function goBack() {
-        window.location.replace("finishExam.html");
-      }
+  
     </script>
   </body>
 </html>
